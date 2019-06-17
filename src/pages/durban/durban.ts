@@ -21,6 +21,8 @@ export class DurbanPage {
    durbanArticle: any;
    dbnheader:any;
    dbndate: any;
+   movie: any;
+   suits: any;
   constructor(public navCtrl: NavController, public navParams: NavParams, private weatherProvide: WeatherProvider) {
 
   }
@@ -38,10 +40,16 @@ export class DurbanPage {
   this.durbanArticle = this.newsDurban.articles[0].description;
       this.dbnheader = this.newsDurban.articles[0].title;
       this.dbndate = this.newsDurban.articles[0].publishedAt;
-
-
-
     } );
+
+    this.weatherProvide.Movie().subscribe(movie =>{
+    this.movie = movie;
+console.log(movie.Episodes[0]);
+
+    this.suits = this.movie.Episodes[1].Title;
+    console.log(this.suits);
+
+      });
 
   }
 

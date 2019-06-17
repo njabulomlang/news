@@ -46,6 +46,11 @@ export class WeatherProvider {
                     return currentInfo;
                   };
 
+                  Movie(): Observable<any> {
+                    const currentInfo = this.http.get(`http://www.omdbapi.com/?t=Suits&Season=1&apikey=5909010c`).map(res => res.json());
+
+                    return currentInfo;
+                  }
   }
 
 
