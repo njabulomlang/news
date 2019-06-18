@@ -6,42 +6,53 @@
 -->
 <ion-header>
   <ion-navbar>
-    <ion-title>Durban</ion-title>
+    <ion-title>Trending</ion-title>
   </ion-navbar>
 </ion-header>
-
 <ion-content padding class="main">
 
 
-    <ion-card  *ngIf="wDBN" color="secondary">
 
-        <ion-card-header>
-            {{descr}}
-        </ion-card-header>
+<ion-slides *ngIf="newsDurban?.articles" autoplay="800" loop="true" speed="700" class="slides"   style="height: 50%; margin-top: 10%; margin-bottom: 50px ">
+    <ion-slide *ngFor="let n of newsDurban?.articles">
 
-        <ion-card-content>
-            <ion-icon name="cloudy" class="larger"></ion-icon>
-                <ion-row>
-                    <ion-col col-5>Temp: {{wDBN.main.temp}} °C</ion-col>
-                  <ion-col col-7>  Pressure: {{wDBN.main.pressure}} mb</ion-col>
 
-                </ion-row>
-        </ion-card-content>
+        <div style="background-color: blanchedalmond;margin-left: 5px; padding-bottom: 70px; width: 320px">
 
-      </ion-card>
 
-      <ion-card *ngIf="newsDurban" color="card">
-        <ion-card-header>{{dbnheader}}</ion-card-header>
 
+                    <img src="{{n.urlToImage}}" height="550px" width="100%" alt="no picture" style="margin: auto"><br>
+                   {{n.title}}</div>
+
+
+
+    </ion-slide>
+
+  </ion-slides>
+
+  <ion-card  *ngIf="wDBN" color="secondary" >
+
+      <ion-card-header >
+          <ion-row style="margin-top: -30px; margin-left:-29px">
+              <ion-thumbnail >   <img src="http://openweathermap.org/img/w/{{icon}}" ></ion-thumbnail>
+              <ion-col style="margin-top: 30px">Temp: {{wDBN.main.temp}}  °C</ion-col>
+              <ion-col style="margin-top: -30px;margin-left: 100px">Pressure: {{wDBN.main.pressure}}  mb</ion-col>
+          </ion-row>
+
+      </ion-card-header>
 
       <ion-card-content>
 
-          <ion-row>
-              <ion-col col-12>{{durbanArticle}} </ion-col>
-              <ion-col col-12>{{dbndate}}</ion-col>
-   
-          </ion-row>
+
+          <ion-row class="cardfooter">
+
+
+
+
+
+            </ion-row>
       </ion-card-content>
-      </ion-card>
+
+    </ion-card>
 
 </ion-content>

@@ -6,5 +6,16 @@ page-durban {
 .main{
 background: color($colors, twitter);
 }
+ion-slides {
+  --bullet-background: #ffffff;
+  --bullet-background-active: #b8b8b8;
+}
+ ion-thumbnail {
+  
+  img {
+      max-width: 10rem;
+      min-width: 10rem;
+  }
+}
 
 }

@@ -15,6 +15,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'durban.html',
 })
 export class DurbanPage {
+
   wDBN: any;
   descr: any;
    newsDurban: any;
@@ -23,16 +24,14 @@ export class DurbanPage {
    dbndate: any;
    movie: any;
    suits: any;
+   icon: any;
+
   constructor(public navCtrl: NavController, public navParams: NavParams, private weatherProvide: WeatherProvider) {
 
   }
 
   ionViewDidLoad() {
-    this.weatherProvide.currentWeatherDBN().subscribe(wDBN =>{
-      this.wDBN = wDBN;
 
-      this.descr = this.wDBN.weather[0].description;
-    });
 
     this.weatherProvide.currentNews().subscribe( news =>{
       this.newsDurban = news;
@@ -44,12 +43,21 @@ export class DurbanPage {
 
     this.weatherProvide.Movie().subscribe(movie =>{
     this.movie = movie;
-console.log(movie.Episodes[0]);
+
 
     this.suits = this.movie.Episodes[1].Title;
-    console.log(this.suits);
+
 
       });
+
+
+
+  this.weatherProvide.currentWeatherDBN().subscribe(wDBN =>{
+    this.wDBN = wDBN;
+    this.icon = wDBN.weather[0].icon+'.png';
+    this.descr = this.wDBN.weather[0].description;
+
+  });
 
   }
 

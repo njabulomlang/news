@@ -11,7 +11,6 @@ import { HttpModule } from '@angular/http';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { SettingsPage } from '../pages/settings/settings';
-import { AboutPage } from '../pages/about/about';
 import { WeatherProvider } from '../providers/weather/weather';
 import { DurbanPage } from '../pages/durban/durban';
 
@@ -22,7 +21,6 @@ import { DurbanPage } from '../pages/durban/durban';
     MyApp,
     HomePage,
     SettingsPage,
-    AboutPage,
     DurbanPage,LadysmithPage, SowetoPage
   ],
   imports: [
@@ -35,8 +33,7 @@ import { DurbanPage } from '../pages/durban/durban';
     MyApp,
     HomePage,
     SettingsPage,
-    AboutPage,
- 
+
     DurbanPage,LadysmithPage, SowetoPage
   ],
   providers: [
