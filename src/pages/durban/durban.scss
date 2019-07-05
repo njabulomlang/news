@@ -4,18 +4,46 @@ page-durban {
     margin-left: 30%;
 }
 .main{
+  display: flex;
 background: color($colors, twitter);
+flex-direction: row;
 }
 ion-slides {
   --bullet-background: #ffffff;
   --bullet-background-active: #b8b8b8;
 }
  ion-thumbnail {
-  
+
   img {
       max-width: 10rem;
       min-width: 10rem;
   }
 }
 
+div.scrollmenu {
+  background-color: transparent;
+  overflow: auto;
+  white-space: nowrap;
+  margin-left: -25px;
+  margin-top: -20px;
+
 }
+
+div.scrollmenu div {
+  display: inline-block;
+  color: rgb(0, 0, 0);
+  text-align: left;
+  //padding: 14px;
+  text-decoration: none;
+  background-color: rgb(241, 242, 247);
+  width: 550px;
+  margin: 40px;
+  padding: 10px;
+  font-size: 15px;
+  hyphens: auto;
+  flex-wrap: nowrap;
+
+
+}
+}
+

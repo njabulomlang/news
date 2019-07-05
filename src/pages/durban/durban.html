@@ -10,25 +10,18 @@
   </ion-navbar>
 </ion-header>
 <ion-content padding class="main">
+    <div class="scrollmenu" >
+    <div  *ngFor="let n of newsDurban?.articles">
 
 
 
-<ion-slides *ngIf="newsDurban?.articles" autoplay="800" loop="true" speed="700" class="slides"   style="height: 50%; margin-top: 10%; margin-bottom: 50px ">
-    <ion-slide *ngFor="let n of newsDurban?.articles">
-
-
-        <div style="background-color: blanchedalmond;margin-left: 5px; padding-bottom: 70px; width: 320px">
 
 
 
                     <img src="{{n.urlToImage}}" height="550px" width="100%" alt="no picture" style="margin: auto"><br>
-                   {{n.title}}</div>
-
-
-
-    </ion-slide>
-
-  </ion-slides>
+                   {{n.title}}
+        </div>
+    </div>
 
   <ion-card  *ngIf="wDBN" color="secondary" >
 
