@@ -1,6 +1,7 @@
 import { WeatherProvider } from './../../providers/weather/weather';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
+
 
 /**
  * Generated class for the DurbanPage page.
@@ -23,43 +24,44 @@ export class DurbanPage {
    dbnheader:any;
    dbndate: any;
    movie: any;
-   suits: any;
    icon: any;
+   latitude: any;
+   longitude: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private weatherProvide: WeatherProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private weatherProvide: WeatherProvider,public toastCtrl: ToastController) {
 
   }
 
   ionViewDidLoad() {
 
 
+
     this.weatherProvide.currentNews().subscribe( news =>{
       this.newsDurban = news;
 
-  this.durbanArticle = this.newsDurban.articles[0].description;
-      this.dbnheader = this.newsDurban.articles[0].title;
-      this.dbndate = this.newsDurban.articles[0].publishedAt;
+      console.log(this.newsDurban);
+
     } );
 
-    this.weatherProvide.Movie().subscribe(movie =>{
-    this.movie = movie;
 
 
-    this.suits = this.movie.Episodes[1].Title;
-
-
-      });
-
-
-
-  this.weatherProvide.currentWeatherDBN().subscribe(wDBN =>{
-    this.wDBN = wDBN;
-    this.icon = wDBN.weather[0].icon+'.png';
-    this.descr = this.wDBN.weather[0].description;
-
-  });
 
   }
+ /*  open(){
+
+    for (let i = 0; i < this.newsDurban.articles.length; i++ ) {
+
+        const element = this.newsDurban.articles[i].url;
+      window.open(element, '_system')
+      console.log(element);
+      }
 
 
+         window.open(this.newsDurban.articles[i].url, '_system');
+    }
+   */
+
+   open(id) {
+     window.open(id, '_system');
+   }
 }

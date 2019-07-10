@@ -21,25 +21,15 @@ export class SowetoPage {
   article: any;
   ahead: any;
   url: any;
-  date: any;
+  movie: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private weatherProvide: WeatherProvider) {
   }
 
   ionViewDidLoad() {
-    this.weatherProvide.currentWeather().subscribe(weather =>{
-      this.weather = weather;
-      this.descr = this.weather.weather[0].description;
-      });
-
-      this.weatherProvide.currentNews().subscribe(news =>{
-        this.news = news;
-  
-        this.article = news.articles[3].description;
-        this.ahead = news.articles[3].title;
-        this.url = news.articles[3].url;
-        this.date = news.articles[3].publishedAt;
-      })
+    this.weatherProvide.Movie().subscribe(movie =>{
+      this.movie = movie;
+        });
   }
 
 }

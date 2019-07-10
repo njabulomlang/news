@@ -13,7 +13,7 @@ import { HomePage } from '../pages/home/home';
 import { SettingsPage } from '../pages/settings/settings';
 import { WeatherProvider } from '../providers/weather/weather';
 import { DurbanPage } from '../pages/durban/durban';
-
+import { Geolocation } from '@ionic-native/geolocation';
 
 
 @NgModule({
@@ -40,7 +40,9 @@ import { DurbanPage } from '../pages/durban/durban';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    WeatherProvider
+    WeatherProvider,
+    Geolocation
+
   ]
 })
 export class AppModule {}

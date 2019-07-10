@@ -5,6 +5,7 @@ import { Observable } from 'rxjs/Observable';
 
 
 
+
 /*
   Generated class for the WeatherProvider provider.
 
@@ -33,9 +34,9 @@ export class WeatherProvider {
 
             return currentInfo;
           };
-          currentWeatherDBN(): Observable<any> {
+          currentWeatherDBN(latitude, longitude): Observable<any> {
 
-            const currentInfo = this.http.get(`http://api.openweathermap.org/data/2.5/weather?q=${this.location},za&units=metric&APPID=${this.apiKey}`).map(res => res.json());
+            const currentInfo = this.http.get(`http://api.openweathermap.org/data/2.5/weather?lat=`+latitude+`&lon=`+longitude+`&units=metric&APPID=${this.apiKey}`).map(res => res.json());
 
 
                 return currentInfo;
@@ -48,7 +49,7 @@ export class WeatherProvider {
                   };
 
                   Movie(): Observable<any> {
-                    const currentInfo = this.http.get(`http://www.omdbapi.com/?t=Suits&Season=1&apikey=5909010c`).map(res => res.json());
+                    const currentInfo = this.http.get(`http://www.omdbapi.com/?apikey=5909010c&t=Empire&Season=1`).map(res => res.json());
 
                     return currentInfo;
                   }

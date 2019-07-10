@@ -6,37 +6,20 @@
 -->
 <ion-header>
   <ion-navbar>
-    <ion-title>Soweto</ion-title>
+    <ion-title>Empire Season 1</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding class="main">
-
-    <ion-card  *ngIf="weather" color="secondary">
-
-        <ion-card-header>
-            {{descr}}
-        </ion-card-header>
-
-        <ion-card-content>
-            <ion-icon name="rainy" class="larger"></ion-icon>
-            <ion-row>
-                <ion-col col-5>   Temp: {{weather.main.temp}}  °C</ion-col>
-                <ion-col col-7> Pressure: {{weather.main.pressure}} mb</ion-col>
-            </ion-row>
-        </ion-card-content>
-
-      </ion-card>
-
-      <ion-card *ngIf="news" color="card" >
+      <ion-card  *ngFor="let n of movie?.Episodes" >
           <ion-card-header>
-              <ion-col col-5>{{ahead}}</ion-col>
+              <ion-col col-5>Title: {{n.Title}}</ion-col>
           </ion-card-header>
           <ion-card-content>
           <ion-row>
-            <ion-col col-12>{{article}}</ion-col>
+            <ion-col col-12> Episode: {{n.Episode}}</ion-col>
 
-            <ion-col col-12>Date posted: {{date}}</ion-col>
+            <ion-col col-12>Date released: {{n.Released}}</ion-col>
           </ion-row>
           </ion-card-content>
         </ion-card>

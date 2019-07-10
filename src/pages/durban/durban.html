@@ -10,42 +10,22 @@
   </ion-navbar>
 </ion-header>
 <ion-content padding class="main">
+
     <div class="scrollmenu" >
-    <div  *ngFor="let n of newsDurban?.articles">
+    <div  *ngFor="let n of newsDurban?.articles; let i=index;">
+                   <ion-card-header >
+                    {{n.title}}
+                       </ion-card-header>
 
-
-
-
-
-
-                    <img src="{{n.urlToImage}}" height="550px" width="100%" alt="no picture" style="margin: auto"><br>
-                   {{n.title}}
+                       <ion-card-content>
+                           <ion-row>
+                               <ion-col col-12> {{n.description}} </ion-col>
+                               <ion-col col-12> {{n.publishedAt}}</ion-col>
+                               <ion-col col-12 (click)="open(n.url)"> {{n.url}} </ion-col>
+                           </ion-row>
+                       </ion-card-content>
         </div>
     </div>
 
-  <ion-card  *ngIf="wDBN" color="secondary" >
-
-      <ion-card-header >
-          <ion-row style="margin-top: -30px; margin-left:-29px">
-              <ion-thumbnail >   <img src="http://openweathermap.org/img/w/{{icon}}" ></ion-thumbnail>
-              <ion-col style="margin-top: 30px">Temp: {{wDBN.main.temp}}  °C</ion-col>
-              <ion-col style="margin-top: -30px;margin-left: 100px">Pressure: {{wDBN.main.pressure}}  mb</ion-col>
-          </ion-row>
-
-      </ion-card-header>
-
-      <ion-card-content>
-
-
-          <ion-row class="cardfooter">
-
-
-
-
-
-            </ion-row>
-      </ion-card-content>
-
-    </ion-card>
 
 </ion-content>

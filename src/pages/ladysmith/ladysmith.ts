@@ -1,7 +1,7 @@
 import { WeatherProvider } from './../../providers/weather/weather';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
+import { Geolocation } from '@ionic-native/geolocation';
 /**
  * Generated class for the LadysmithPage page.
  *
@@ -16,28 +16,26 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class LadysmithPage {
   wNKR: any;
-  descr: any;
-  nkr: any;
-  ahe:any;
-  art:any;
-  url1:any;
-  date1: any;
-  constructor(public navCtrl: NavController, public navParams: NavParams, private weatherProvide: WeatherProvider) {
+  icon: any;
+  constructor(public navCtrl: NavController, public navParams: NavParams, private weatherProvide: WeatherProvider,public geolocation: Geolocation) {
   }
 
   ionViewDidLoad() {
-    this.weatherProvide.currentWeatherNKR().subscribe(wNKR =>{
-      this.wNKR = wNKR;
-      this.descr = this.wNKR.weather[0].description;
+
+    this.getWeather();
+}
+getWeather()
+  {
+    this.geolocation.getCurrentPosition().then((res) => {
+
+
+      this.weatherProvide.currentWeatherDBN(res.coords.latitude, res.coords.longitude).subscribe(wDBN =>{
+      this.wNKR = wDBN;
+      this.icon = this.wNKR.weather[0].icon+'.png';
+
     });
 
-    this.weatherProvide.currentNews().subscribe(nkr =>{
-      this.nkr = nkr;
+  });
 
-      this.ahe = this.nkr.articles[6].title;
-      this.art = this.nkr.articles[6].description;
-      this.date1 = this.nkr.articles[6].publishedAt;
-        });
-
-}
+  }
 }

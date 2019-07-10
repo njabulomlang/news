@@ -6,7 +6,7 @@
 -->
 <ion-header>
   <ion-navbar>
-    <ion-title>Ladysmith</ion-title>
+    <ion-title>Weather</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -15,29 +15,21 @@
     <ion-card  *ngIf="wNKR" color="secondary">
 
         <ion-card-header >
-     {{descr}}
+     {{wNKR.name}} <p><img src="http://openweathermap.org/img/w/{{icon}}" height="70"></p>
         </ion-card-header>
 
         <ion-card-content>
-            <ion-icon name="partly-sunny" class="larger"></ion-icon>
+
             <ion-row>
                 <ion-col col-5> Temp: {{wNKR.main.temp}}  °C</ion-col>
                 <ion-col col-7> Pressure: {{wNKR.main.pressure}}  mb</ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col col-5> Details: {{wNKR.weather[0].description}} </ion-col>
+                <ion-col col-7> Wind: {{wNKR.wind.speed}}  km/h</ion-col>
             </ion-row>
         </ion-card-content>
 
       </ion-card>
 
-      <ion-card *ngIf="nkr" color="card">
-        <ion-card-header>
-            <ion-col col-5>{{ahe}}</ion-col>
-        </ion-card-header>
-        <ion-card-content>
-        <ion-row>
-          <ion-col col-12>{{art}}</ion-col>
-          <ion-col col-12>{{url1}}</ion-col>
-          <ion-col col-12>{{date1}}</ion-col>
-        </ion-row>
-        </ion-card-content>
-      </ion-card>
 </ion-content>

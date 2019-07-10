@@ -6,7 +6,7 @@ page-durban {
 .main{
   display: flex;
 background: color($colors, twitter);
-flex-direction: row;
+flex-direction: column;
 }
 ion-slides {
   --bullet-background: #ffffff;
@@ -23,10 +23,10 @@ ion-slides {
 div.scrollmenu {
   background-color: transparent;
   overflow: auto;
-  white-space: nowrap;
-  margin-left: -25px;
-  margin-top: -20px;
-
+  white-space: wrap;
+ // margin-left: -15px;
+  //margin-top: -10px;
+  width: 100%
 }
 
 div.scrollmenu div {
@@ -36,12 +36,13 @@ div.scrollmenu div {
   //padding: 14px;
   text-decoration: none;
   background-color: rgb(241, 242, 247);
-  width: 550px;
-  margin: 40px;
-  padding: 10px;
+  width: 98%;
+  flex: 1;
+  margin: 5px;
+  padding: 5px;
   font-size: 15px;
   hyphens: auto;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
 
 
 }
